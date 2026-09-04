@@ -1,0 +1,31 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/*
+ * UNI8 base layer.
+ * Full typographic system + component classes are a Phase 2 deliverable
+ * (customer-facing frontend, SRS §26). This establishes only the base
+ * surface/ink so every route (including admin/vendor/staff scaffolding
+ * built in Phase 1) renders on-brand rather than on Tailwind defaults.
+ */
+@layer base {
+  :root {
+    color-scheme: light;
+  }
+
+  body {
+    @apply bg-cream-100 text-ink font-body antialiased;
+  }
+
+  h1, h2, h3, h4 {
+    @apply font-display text-ink;
+  }
+
+  :focus-visible {
+    /* Accessibility requirement, SRS §26.3: keyboard focus states must
+       survive the playful visual direction. */
+    outline: 3px solid theme("colors.orange.500");
+    outline-offset: 2px;
+  }
+}
